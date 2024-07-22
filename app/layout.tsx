@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import '@mantine/core/styles.css';
 import { ColorSchemeScript, createTheme, MantineProvider } from "@mantine/core";
 import { NavbarSimple } from "@/components/NavbarSimple";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,12 +26,14 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <MantineProvider theme={theme}>
-          <div style={{ display: 'flex' }}>
-            <NavbarSimple />
-            <div style={{ flexGrow: 1, padding: '1rem' }}>
-              {children}
+          <SessionProvider>
+            <div style={{ display: 'flex' }}>
+              <NavbarSimple />
+              <div style={{ flexGrow: 1, padding: '1rem' }}>
+                {children}
+              </div>
             </div>
-          </div>
+          </SessionProvider>
         </MantineProvider>
       </body>
     </html>

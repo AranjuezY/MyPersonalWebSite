@@ -21,7 +21,6 @@ function LoginButton() {
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (pending) {
-      console.log('pending');
       event.preventDefault();
     }
   }
