@@ -19,7 +19,7 @@ export default function Page() {
 function LoginButton() {
   const { pending } = useFormStatus()
 
-  const handleClick = (event: Event) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (pending) {
       console.log('pending');
       event.preventDefault();
